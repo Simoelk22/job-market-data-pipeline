@@ -1,0 +1,8 @@
+services:
+  job-pipeline:
+    build: .
+    container_name: job-market-pipeline
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    command: python src/pipeline.py
