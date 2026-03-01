@@ -1,8 +1,30 @@
 services:
+  postgres:
+    image: postgres:16
+    container_name: job-postgres
+    environment:
+      POSTGRES_USER: jobuser
+      POSTGRES_PASSWORD: jobpassword
+      POSTGRES_DB: jobdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
   job-pipeline:
     build: .
     container_name: job-market-pipeline
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_NAME: jobdb
+      DB_USER: jobuser
+      DB_PASSWORD: jobpassword
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
     command: python src/pipeline.py
+
+volumes:
+  pgdata:
