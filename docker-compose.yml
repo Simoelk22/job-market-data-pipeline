@@ -10,21 +10,41 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jobuser -d jobdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
   job-pipeline:
     build: .
     container_name: job-market-pipeline
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     environment:
       DB_HOST: postgres
       DB_NAME: jobdb
       DB_USER: jobuser
       DB_PASSWORD: jobpassword
+      DB_PORT: "5432"
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
     command: python src/pipeline.py
+    restart: "no"
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: job-metabase
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      MB_DB_TYPE: h2
+    restart: unless-stopped
 
 volumes:
   pgdata:
