@@ -96,3 +96,18 @@ job-market-pipeline/
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
+
+
+---
+
+## ▶️ How to Run
+
+Make sure Docker is installed.
+
+```bash
+docker compose up --build
+
+Access:
+
+PostgreSQL → localhost:5432
+Metabase → http://localhost:3000
