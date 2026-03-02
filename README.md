@@ -70,14 +70,14 @@ Metabase Dashboard
 
 ## 📷 Dashboard Preview
 
-### Dashboard Overview
-![Dashboard Overview](screenshots/Dashboard Overview.png)
+**Dashboard Overview**
+![Dashboard Overview](screenshots/dashboard-overview.png)
 
-### Jobs by Category
-![Jobs by Category](screenshots/Jobs by Category.png)
+**Jobs by Category**
+![Jobs by Category](screenshots/jobs-by-category.png)
 
-### Top Companies
-![Top Companies](screenshots/Top Companies.png)
+**Top Companies**
+![Top Companies](screenshots/top-companies.png)
 
 ---
 
