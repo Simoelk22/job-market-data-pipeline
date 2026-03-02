@@ -3,6 +3,14 @@
 Production-style ETL pipeline that extracts remote job data from the Remotive API, transforms and cleans it, loads it into PostgreSQL, tracks pipeline runs, and visualizes insights with Metabase.
 
 ---
+## 🧠 Engineering Concepts Demonstrated
+
+- Incremental data loading
+- Idempotent ETL runs
+- Staging vs Production table architecture
+- Pipeline observability (run tracking table)
+- Docker container orchestration
+- Data quality validation checks
 
 ## ✨ Features
 
