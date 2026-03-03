@@ -119,3 +119,7 @@ Access:
 
 PostgreSQL → localhost:5432
 Metabase → http://localhost:3000
+
+
+
+MEK
